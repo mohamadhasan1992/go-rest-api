@@ -1,9 +1,14 @@
 package main
 
 import (
-	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/mohamadhasan1992/go-rest-api.git/db"
+	"github.com/mohamadhasan1992/go-rest-api.git/routes"
 )
 
 func main() {
-	fmt.Println("hello")
+	db.InitDB()
+	server := gin.Default()
+	routes.RegisterRoutes(server)
+	server.Run(":8080")
 }
